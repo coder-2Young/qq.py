@@ -1,4 +1,4 @@
-from openpyxl.workbook import Workbook
+
 from os.path import isdir, isfile, abspath, getsize, splitext, join, exists
 from os import listdir, stat, rename, makedirs
 from time import localtime, strftime
@@ -10,7 +10,7 @@ import shutil
 def sizeConvert(size):  # 文件大小转换函数，将以字节为单位的文件大小转化成K, M, G
     K, M, G = 1024, 1024 ** 2, 1024 ** 3
     if size > G:
-        return str(size / G)[:5] + 'GB'  # 截取大小长度为5
+        return str(size / G)[:5] + 'GB'
     elif size > M:
         return str(size / M)[:5] + 'MB'
     elif size > K:
@@ -24,7 +24,7 @@ def file_rename(file_dir):
         print("Not a dir!")
         return
     for dir in listdir(file_dir):
-        realdir = join(file_dir, dir)  # Python以主函数所在的dirctory作为基准进行文件读取，如果不加file_dir将会找不到下层的文件，也可以用os.path.realpath
+        realdir = join(file_dir, dir)  # Python以主函数所在的dirctory作为基准进行文件读取，如果不加file_dir将会找不到下层的文件
         if isdir(realdir):
             file_rename(realdir)  # 如果目标还是一个目录，递归调用函数
         else:
@@ -45,7 +45,7 @@ def get_md5(file_path):
         hash_code = md5_obj.hexdigest()
         f.close()
         md5 = hash_code.lower()
-    return md5  # 使用md5存在一个问题，即将名称中带有'副本'的文件留下，将原文件移到待删除中，后续可以加入对名称的条件判断增强实用性
+    return md5 #使用md5存在一个问题，即将名称中带有'副本'的文件留下，将原文件移到待删除中，后续可以加入对名称的条件判断增强实用性
 
 
 def movefile(srcfile, dstfile):
@@ -181,7 +181,7 @@ def main():
 
     # 函数调用，返回文件名列表
     file_all = file_by_path(file_dir)
-    mvrep(file_all, join(file_dir, '待删除文件'))  # 将重复的文件移到'待删除文件'里
+    mvrep(file_all, join(file_dir,'待删除文件'))  # 将重复的文件移到'待删除文件'里
     file_all = file_by_path(file_dir)  # 再次查询修改过的文件目录
     write_excel(file_all)  # 将文件信息写入excel
 
