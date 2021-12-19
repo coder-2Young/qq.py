@@ -62,10 +62,10 @@ def scan_code_file():
             realdir = realpath(file)
             lb1.insert(n, '名称：{:10},路径{:20},大小:{:10},创建时间:{:10},类型:{:5}'.
                        format(str(file),
-                              realdir),
-                       sizeConvert(getsize(realdir)),
-                       strftime("%Y-%m-%d", localtime(stat(realdir).st_mtime)),
-                       splitext(realdir)[-1][1:])
+                              realdir,
+                              sizeConvert(getsize(realdir)),
+                              strftime("%Y-%m-%d", localtime(stat(realdir).st_mtime)),
+                              splitext(realdir)[-1][1:]))
 
 
 def file_print():
