@@ -46,7 +46,7 @@ class File_Ed(File):
         self.modify_time = modify_time  # 定义新的实例变量
 
     def __str__(self):  # 修改字符串方法
-        s = '文件名：{0:>22}, 文件路径：{1:>8}, 文件大小：{2:>4}, 创建时间：{3:>8}, 文件修改时间：{5:>8}，文件类型：{4:>4},'.format(self.file_name,
+        s = '文件名：{0:>22}, 文件路径：{1:>8}, 文件大小：{2:>4}, 创建时间：{3:>8}, 文件修改时间：{5:>8}，文件类型：{4:>4}'.format(self.file_name,
                                                                                                     self.file_path,
                                                                                                     self.file_size,
                                                                                                     self.file_createTime,
